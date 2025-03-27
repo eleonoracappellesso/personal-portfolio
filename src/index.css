@@ -10,3 +10,16 @@
   --yellow: #FDD16A;
   --text: white;
 }
+
+body {
+  background-color: var(--navy);
+  color: var(--text);
+}
+
+h2 {
+  background: linear-gradient(90deg, var(--pink), var(--light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: bold;
+}

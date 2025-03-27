@@ -6,7 +6,7 @@ export default function Jumbotron() {
         <section className={`debug ${styles.jumbotron}`}>
             <h1>Ciao, sono <span>Eleonora</span></h1>
             <h4>Junior Web Developer</h4>
-            <button><FiChevronDown /></button>
+            {/* <button><FiChevronDown /></button> */}
         </section >
     )
 }

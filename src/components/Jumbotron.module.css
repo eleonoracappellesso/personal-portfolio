@@ -13,15 +13,10 @@
 }
 
 span {
-    background: linear-gradient(90deg, #fc007a, #00e1fd);
+    background: linear-gradient(90deg, var(--pink), var(--light-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-}
-
-button {
-    background: linear-gradient(90deg, #fc007a, #8E7BBF);
-    color: var(--text);
 }
