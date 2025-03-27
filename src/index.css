@@ -1,3 +1,12 @@
 .debug {
   border: 1px solid red;
 }
+
+/* palette colori */
+:root {
+  --light-blue: #00e1fd;
+  --pink: #fc007a;
+  --navy: #1C1933;
+  --yellow: #FDD16A;
+  --text: white;
+}
