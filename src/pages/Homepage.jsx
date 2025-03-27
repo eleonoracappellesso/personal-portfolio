@@ -6,10 +6,12 @@ import Contatti from "../components/Contatti"
 export default function Homepage() {
     return (
         <div>
-            <Jumbotron />
-            <ChiSono />
-            <Progetti />
-            <Contatti />
+            <main className="container">
+                <Jumbotron />
+                <ChiSono />
+                <Progetti />
+                <Contatti />
+            </main>
         </div>
     )
 }
