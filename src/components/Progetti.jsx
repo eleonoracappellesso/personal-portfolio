@@ -6,31 +6,31 @@ export default function Progetti() {
             id: 1,
             titolo: "Bool B&B",
             descrizione: "Descrizione del primo progetto.",
-            immagine: "/BoolBnB.png"
+            immagine: "/projects/BoolBnB.png"
         },
         {
             id: 2,
             titolo: "Book Shop",
             descrizione: "Descrizione del secondo progetto.",
-            immagine: "/BookShop.png"
+            immagine: "/projects/BookShop.png"
         },
         {
             id: 3,
             titolo: "Boolflix",
             descrizione: "Descrizione del terzo progetto.",
-            immagine: "/Netflix.png"
+            immagine: "/projects/Netflix.png"
         },
         {
             id: 4,
             titolo: "Boolify",
             descrizione: "Descrizione del terzo progetto.",
-            immagine: "/Spotify.png"
+            immagine: "/projects/Spotify.png"
         },
         {
             id: 5,
             titolo: "Dropbox",
             descrizione: "Descrizione del terzo progetto.",
-            immagine: "/Dropbox.png"
+            immagine: "/projects/Dropbox.png"
         }
     ];
 
