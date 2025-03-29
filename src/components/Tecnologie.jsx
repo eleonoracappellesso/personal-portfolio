@@ -19,11 +19,15 @@ export default function Tecnologie() {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 3,
         slidesToScroll: 1,
         centerMode: true,
         centerPadding: "20px", // Aggiunge spazio laterale
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "ease-in-out",
+
     };
 
     return (

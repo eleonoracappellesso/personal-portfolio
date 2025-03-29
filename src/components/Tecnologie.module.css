@@ -14,7 +14,6 @@
 
 .card {
     width: 120px;
-    /* Dimensione fissa */
     height: 120px;
     display: flex;
     flex-direction: column;
@@ -23,10 +22,15 @@
     border: 2px solid var(--yellow);
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    /* background-color: white; */
-    margin: 0 auto;
-    /* Per evitare che si allarghino */
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px var(--yellow), 0 0 20px var(--yellow);
+    transform: scale(1.07);
+    animation: glow 1.5s infinite alternate ease-in-out;
 }
 
 .slick-slide {
