@@ -32,7 +32,7 @@ export default function Tecnologie() {
 
     return (
         <div className={styles.container}>
-            <h4>Le tecnologie che uso attualmente sono:</h4>
+            <h4>Le <span>tecnologie</span> che uso attualmente sono:</h4>
             <div className={styles.sliderWrapper}>
                 <Slider {...settings}>
                     {technologies.map((tech, index) => (

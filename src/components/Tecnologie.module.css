@@ -69,3 +69,11 @@
 .slick-dots li.slick-active button:before {
     color: #000;
 }
+
+span {
+    background: linear-gradient(5deg, var(--pink), var(--light-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-size: 1em;
+}
