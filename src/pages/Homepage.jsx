@@ -1,16 +1,16 @@
 import Jumbotron from "../components/Jumbotron"
 import ChiSono from "../components/ChiSono"
 import Progetti from "../components/Progetti"
-import Contatti from "../components/Contatti"
 
 export default function Homepage() {
     return (
         <div>
-            <main className="container">
+            <main>
                 <Jumbotron />
-                <ChiSono />
-                <Progetti />
-                <Contatti />
+                <div className="container">
+                    <ChiSono />
+                    <Progetti />
+                </div>
             </main>
         </div>
     )

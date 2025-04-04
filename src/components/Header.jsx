@@ -13,6 +13,9 @@ export default function Header() {
                 <a href="https://www.instagram.com/tuoUsername" target="_blank" rel="noopener noreferrer">
                     Instagram
                 </a>
+                <a href="mailto:cappellessoeleonora@gmail.com">
+                    Contattami
+                </a>
                 <a href="/CV_EleonoraCappellesso.pdf" target="_blank" rel="noopener noreferrer">
                     Curriculum
                 </a>
