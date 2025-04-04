@@ -1,24 +1,33 @@
 .jumbotron {
     width: 100% !important;
-    height: 90vh;
-    /* background-color: var(--navy); */
-
-    background-image: url("texture.png");
+    height: 100vh;
+    background-image: url("texture2.png");
     background-size: cover;
-    /* Adatta l'immagine allo schermo */
     background-repeat: no-repeat;
-    /* Evita la ripetizione dell'immagine */
     background-position: center;
-    /* Centra l'immagine */
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 2rem;
+    gap: 0.5rem;
     text-align: center;
     color: var(--text);
     position: relative;
     margin-bottom: 80px;
+}
+
+.jumbotron::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    /*altezza sfumatura*/
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--navy) 100%);
+    pointer-events: none;
 }
 
 span {
@@ -28,4 +37,26 @@ span {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
+}
+
+.typing {
+    margin-top: 20px;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre;
+    font-size: 1rem;
+    color: #8c8c8c;
+}
+
+.cursor {
+    display: inline-block;
+    width: 1px;
+    background-color: var(--text);
+    animation: blink 0.8s step-start infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
