@@ -1,16 +1,8 @@
-// import styles from "./Jumbotron.module.css";
-
-// export default function Jumbotron() {
-//     return (
-//         <section className={`debug ${styles.jumbotron}`}>
-//             <h1>Ciao, sono <span>Eleonora</span></h1>
-//             <h4>Junior Web Developer</h4>
-//         </section >
-//     )
-// }
-
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import particlesConfig from "../particles-config";
 import styles from "./Jumbotron.module.css";
 
 export default function Jumbotron() {
@@ -18,6 +10,12 @@ export default function Jumbotron() {
     const [typedText, setTypedText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // Funzione per inizializzare il motore delle particelle
+    const particlesInit = useCallback(async (engine) => {
+        await loadSlim(engine);
+    }, []);
+
+    // Effetto per la scrittura automatica
     useEffect(() => {
         if (currentIndex < fullText.length) {
             const timeout = setTimeout(() => {
@@ -29,7 +27,16 @@ export default function Jumbotron() {
     }, [currentIndex, fullText]);
 
     return (
-        <section className={`debug ${styles.jumbotron}`}>
+        <section className={styles.jumbotron}>
+            {/* Componente Particelle per lo sfondo animato */}
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                options={particlesConfig}
+                className={styles.particles}
+            />
+
+            {/* Contenuto del Jumbotron */}
             <motion.h1
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -46,11 +53,28 @@ export default function Jumbotron() {
                 Junior Web Developer
             </motion.h4>
 
-            <p className={styles.typing}>
-                {typedText}
-                <span className={styles.cursor}>|</span>
-            </p>
+            {/* Finestra di codice animata */}
+            <motion.div
+                className={styles.codeWindow}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 2.5 }}
+            >
+                <div className={styles.windowHeader}>
+                    <div className={styles.dot} style={{ background: '#ff5f56' }}></div>
+                    <div className={styles.dot} style={{ background: '#ffbd2e' }}></div>
+                    <div className={styles.dot} style={{ background: '#27c93f' }}></div>
+                </div>
+                <p className={styles.typing}>
+                    {typedText}
+                    <span className={styles.cursor}>|</span>
+                </p>
+            </motion.div>
 
+            {/* Indicatore per invitare allo scroll */}
+            <a href="#chi-sono-section" className={styles.scrollDownIndicator}>
+                <div className={styles.arrow}></div>
+            </a>
         </section>
     );
 }

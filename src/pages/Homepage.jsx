@@ -8,7 +8,9 @@ export default function Homepage() {
         <>
             <Jumbotron />
             <div className="container">
-                <ChiSono />
+                <div id="chi-sono-section">
+                    <ChiSono />
+                </div>
                 <Progetti />
                 <Contatti />
             </div>

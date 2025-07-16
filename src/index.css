@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-/* .debug {
-  border: 1px solid red;
-} */
-
 /* palette colori */
 :root {
   --light-blue: #00e1fd;
@@ -14,11 +10,20 @@
   --text: white;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
   background-color: var(--navy);
   color: var(--text);
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
+}
+
+.main-content {
+  padding-top: 70px;
 }
 
 h2 {
