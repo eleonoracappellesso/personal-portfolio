@@ -1,7 +1,4 @@
 import styles from "./Tecnologie.module.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const technologies = [
     { name: "HTML", img: "/technologies/html.png" },
@@ -16,34 +13,16 @@ const technologies = [
 ];
 
 export default function Tecnologie() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "20px", // Aggiunge spazio laterale
-        autoplay: true,
-        autoplaySpeed: 2000,
-        cssEase: "ease-in-out",
-
-    };
-
     return (
         <div className={styles.container}>
             <h4>Le <span>tecnologie</span> che uso attualmente sono:</h4>
-            <div className={styles.sliderWrapper}>
-                <Slider {...settings}>
-                    {technologies.map((tech, index) => (
-                        <div key={index} className={styles.cardWrapper}>
-                            <div className={styles.card}>
-                                <img src={tech.img} alt={tech.name} className={styles.icon} />
-                                <p className={styles.techName}>{tech.name}</p>
-                            </div>
-                        </div>
-                    ))}
-                </Slider>
+            <div className={styles.grid}>
+                {technologies.map((tech, index) => (
+                    <div key={index} className={styles.card}>
+                        <img src={tech.img} alt={tech.name} className={styles.icon} />
+                        <p className={styles.techName}>{tech.name}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

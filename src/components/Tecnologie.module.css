@@ -1,3 +1,5 @@
+/* --- FILE: Tecnologie.module.css --- */
+
 .container {
     text-align: center;
     padding: 20px;
@@ -5,11 +7,15 @@
     margin-top: 50px;
 }
 
+/* NUOVA GRIGLIA RESPONSIVA */
 .grid {
-    margin-top: 20px;
-    overflow: hidden;
-    padding: 0 20px;
-    /* Più spazio ai lati */
+    margin-top: 40px;
+    display: grid;
+    /* Crea colonne di almeno 120px, riempiendo lo spazio disponibile */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    /* Spazio tra le card */
+    justify-items: center;
 }
 
 .card {
@@ -22,7 +28,7 @@
     border: 2px solid var(--yellow);
     border-radius: 10px;
     padding: 10px;
-    margin: 30px auto;
+    /* Rimuoviamo il margin auto, la griglia gestisce il posizionamento */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease-in-out;
 }
@@ -33,41 +39,17 @@
     animation: glow 1.5s infinite alternate ease-in-out;
 }
 
-.slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    width: auto !important;
-    /* Assicura che la larghezza sia data solo dalla card */
-}
-
 .icon {
     width: 60px;
     height: auto;
 }
 
 .techName {
-    margin-top: 5px;
-    font-size: 12px;
-    /* Leggermente più piccolo */
+    margin-top: 10px;
+    font-size: 14px;
+    /* Un po' più grande per leggibilità */
     font-weight: bold;
     text-align: center;
-}
-
-.slick-track {
-    display: flex !important;
-    gap: 15px;
-    /* Spazio tra le card */
-}
-
-/* Migliora la visibilità dei pallini del carosello */
-.slick-dots li button:before {
-    color: var(--yellow);
-    font-size: 10px;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #000;
 }
 
 span {
@@ -77,3 +59,5 @@ span {
     display: inline-block;
     font-size: 1em;
 }
+
+/* Rimuovi tutte le classi .slick-* che c'erano prima */
