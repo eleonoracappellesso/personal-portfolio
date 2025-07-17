@@ -2,9 +2,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { progetti } from "../data/projects"; // Importa i dati
+import { IoArrowBack } from "react-icons/io5";
 import styles from "./DettagliProgetto.module.css";
 
-export default function ProgettoDettaglio() {
+export default function DettagliProgetto() {
     const { slug } = useParams(); // Legge lo 'slug' dalla URL
     const navigate = useNavigate();
 
@@ -33,6 +34,12 @@ export default function ProgettoDettaglio() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
+
+            <Link to="/#progetti" className={styles.backButton}>
+                <IoArrowBack />
+                Tutti i progetti
+            </Link>
+
             <div className={styles.header}>
                 <h1 className={styles.title}>{progetto.titolo}</h1>
                 <span className={styles.typeLabel}>{progetto.type}</span>

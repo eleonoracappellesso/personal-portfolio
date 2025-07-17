@@ -1,21 +1,51 @@
-import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from "react-scroll";
 import styles from "./Header.module.css";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
 
-
 export default function Header() {
+    // Ottiengo la posizione corrente dell'URL
+    const location = useLocation();
+
+    // Controllo se siamo sulla homepage
+    const isHomepage = location.pathname === '/';
+
+    // Creo un array per i link per rendere il codice più pulito
+    const navLinks = [
+        { to: "chi-sono", label: "About" },
+        { to: "progetti", label: "Progetti" },
+        { to: "contatti", label: "Contatti" },
+    ];
+
     return (
         <header className={styles.header}>
-            {/* Link di Navigazione Interna */}
             <nav className={styles.navLinks}>
-                <a href="/#chi-sono">About</a>
-                <a href="/#progetti">Progetti</a>
-                <a href="/#contatti">Contatti</a>
+                {navLinks.map(link => (
+                    // Renderizzazione Condizionale per ogni link
+                    isHomepage ? (
+                        // SE SIAMO SULLA HOMEPAGE: Usa react-scroll
+                        <ScrollLink
+                            key={link.to}
+                            activeClass={styles.active}
+                            to={link.to}
+                            spy={true}
+                            smooth={true}
+                            offset={-80}
+                            duration={500}
+                        >
+                            {link.label}
+                        </ScrollLink>
+                    ) : (
+                        // SE NON SIAMO SULLA HOMEPAGE: Usa un link normale
+                        <a key={link.to} href={`/#${link.to}`}>
+                            {link.label}
+                        </a>
+                    )
+                ))}
             </nav>
 
-            {/* Link Social e Esterni */}
             <div className={styles.socialLinks}>
                 <a href="https://github.com/eleonoracappellesso" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <FaGithub />

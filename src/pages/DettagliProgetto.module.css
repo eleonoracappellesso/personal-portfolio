@@ -1,3 +1,43 @@
+/* Stili per il link di ritorno */
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    /* Un po' più di spazio per un bottone */
+
+    background-color: #2a2744;
+    /* Sfondo scuro, coerente con il tema */
+    color: var(--text);
+    /* Testo bianco di default */
+    border: 1px solid var(--light-blue);
+    /* Bordo azzurro per definirlo */
+
+    padding: 0.6rem 1.2rem;
+    /* Padding per dargli spessore */
+    border-radius: 50px;
+    /* Bordi molto arrotondati per un look "pillola" */
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+
+    /* Transizione fluida per tutti gli effetti */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: var(--light-blue);
+    /* Sfondo che diventa azzurro */
+    color: var(--navy);
+    /* Testo che diventa scuro per contrasto */
+    transform: translateY(-3px);
+    /* Leggero sollevamento */
+    box-shadow: 0 5px 15px rgba(0, 225, 253, 0.3);
+    /* Ombra luminosa azzurra */
+}
+
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
