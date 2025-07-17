@@ -1,21 +1,25 @@
-/* --- FILE: Tecnologie.module.css --- */
-
 .container {
     text-align: center;
     padding: 20px;
     max-width: 1200px;
-    margin-top: 50px;
+    margin: 0 auto;
+    /* Assicura che il contenitore principale sia centrato */
 }
 
-/* NUOVA GRIGLIA RESPONSIVA */
 .grid {
     margin-top: 40px;
-    display: grid;
-    /* Crea colonne di almeno 120px, riempiendo lo spazio disponibile */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    /* Permette alle card di andare a capo */
+    justify-content: center;
     gap: 2rem;
     /* Spazio tra le card */
-    justify-items: center;
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -28,26 +32,30 @@
     border: 2px solid var(--yellow);
     border-radius: 10px;
     padding: 10px;
-    /* Rimuoviamo il margin auto, la griglia gestisce il posizionamento */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease-in-out;
+    transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+    /* Nasconde parti dell'icona che potrebbero sbordare */
 }
 
-.card:hover {
+.cardWrapper:hover .card {
     box-shadow: 0 0 25px var(--yellow), 0 0 20px var(--yellow);
-    transform: scale(1.07);
     animation: glow 1.5s infinite alternate ease-in-out;
 }
 
 .icon {
     width: 60px;
-    height: auto;
+    /* Impostiamo una larghezza di riferimento */
+    height: 60px;
+    /* Impostiamo un'altezza di riferimento */
+    object-fit: contain;
+    /* Adatta l'immagine mantenendo le proporzioni */
 }
 
 .techName {
     margin-top: 10px;
     font-size: 14px;
-    /* Un po' più grande per leggibilità */
     font-weight: bold;
     text-align: center;
 }
@@ -60,4 +68,12 @@ span {
     font-size: 1em;
 }
 
-/* Rimuovi tutte le classi .slick-* che c'erano prima */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--yellow);
+    }
+
+    to {
+        box-shadow: 0 0 25px var(--yellow), 0 0 10px var(--yellow);
+    }
+}
