@@ -4,54 +4,81 @@
     left: 0;
     width: 100%;
     height: 70px;
-    background: var(--navy);
+    background: rgba(28, 25, 51, 0.85);
+    /* Leggermente trasparente */
     backdrop-filter: blur(10px);
     transition: all 0.3s ease-in-out;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    /* <-- La chiave per separare i due gruppi */
     align-items: center;
-    padding: 1rem;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    padding: 0 2rem;
+    /* Aggiunto padding orizzontale */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, var(--pink), var(--light-blue)) 1;
 }
 
-/* .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: var(--navy);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
+/* Stili per i link di navigazione a sinistra */
+.navLinks {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+    gap: 2.5rem;
+    /* Aumentiamo un po' lo spazio */
 }
 
-.header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, var(--pink), var(--light-blue));
-} */
-
-.nav {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav a {
+.navLinks a {
     text-decoration: none;
-    color: #B653A5;
+    color: var(--text);
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    /* Necessario per lo pseudo-elemento ::after */
     transition: color 0.3s ease;
 }
 
-.nav a:hover {
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, var(--pink), var(--light-blue));
+    transform: scaleX(0);
+    /* Parte invisibile */
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
+}
+
+.navLinks a:hover {
+    color: var(--text);
+    /* Il colore non cambia, l'effetto è sulla linea */
+}
+
+.navLinks a:hover::after {
+    transform: scaleX(1);
+    /* La linea appare al hover */
+}
+
+
+/* Stili per i link social a destra */
+.socialLinks {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.socialLinks a {
+    color: #c5c8c6;
+    /* Un grigio chiaro per le icone */
+    font-size: 1.5rem;
+    /* Dimensione delle icone */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLinks a:hover {
     color: var(--light-blue);
+    /* Diventano celesti al hover */
+    transform: scale(1.1);
 }
