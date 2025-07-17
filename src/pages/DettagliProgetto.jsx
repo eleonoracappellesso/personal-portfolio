@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { progetti } from "../data/projects"; // Importa i dati
+import { progetti } from "../data/projects"; // Importo i dati
 import { IoArrowBack } from "react-icons/io5";
 import styles from "./DettagliProgetto.module.css";
 

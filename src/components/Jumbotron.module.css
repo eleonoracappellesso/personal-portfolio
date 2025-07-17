@@ -142,3 +142,20 @@ span {
         transform: translateY(-10px) rotate(45deg);
     }
 }
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+
+    .jumbotron h1,
+    .jumbotron span {
+        font-size: 3rem;
+    }
+
+    .jumbotron h4 {
+        font-size: 1.25rem;
+    }
+
+    .typing {
+        font-size: 1rem;
+    }
+}

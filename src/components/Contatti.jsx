@@ -3,7 +3,8 @@ import { useForm, ValidationError } from '@formspree/react';
 import styles from './Contatti.module.css';
 
 export default function Contatti() {
-    const [state, formspreeHandleSubmit] = useForm("xdkdoypn");
+    const formKey = import.meta.env.VITE_KEY_FORM;
+    const [state, formspreeHandleSubmit] = useForm(formKey);
 
     // Stato per i dati del form
     const [formData, setFormData] = useState({
@@ -106,7 +107,7 @@ export default function Contatti() {
                         value={formData.email}
                         onChange={handleChange}
                     />
-                    {/* Qui uso sia il nostro errore che quello di Formspree per completezza */}
+                    {/* Qui uso sia il mio errore che quello di Formspree per completezza */}
                     {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
                     <ValidationError
                         prefix="Email"

@@ -77,3 +77,16 @@ span {
         box-shadow: 0 0 25px var(--yellow), 0 0 10px var(--yellow);
     }
 }
+
+/* Tablet e Desktop */
+@media (min-width: 768px) {
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+}

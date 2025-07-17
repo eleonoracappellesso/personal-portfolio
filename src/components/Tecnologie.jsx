@@ -9,6 +9,7 @@ const technologies = [
     { name: "Node.js", img: "/technologies/node.png" },
     { name: "Express.js", img: "/technologies/express.png" },
     { name: "Typescript", img: "/technologies/typescript.png" },
+    { name: "REST API", img: "/technologies/rest-api.png" },
     { name: "MySQL", img: "/technologies/mysql.png" },
     { name: "Bootstrap", img: "/technologies/bootstrap.png" },
     { name: "Tailwind", img: "/technologies/tailwind.png" },
@@ -21,7 +22,7 @@ const containerVariants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1, // Applica un ritardo di 0.1s tra l'animazione di ogni card
+            staggerChildren: 0.2, // Applica un ritardo di 0.1s tra l'animazione di ogni card
         },
     },
 };

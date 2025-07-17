@@ -22,6 +22,10 @@ body {
   font-optical-sizing: auto;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .main-content {
   padding-top: 70px;
 }
