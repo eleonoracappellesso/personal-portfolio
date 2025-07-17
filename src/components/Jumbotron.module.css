@@ -1,7 +1,6 @@
 .jumbotron {
     width: 100% !important;
-    /* height: calc(100vh - 70px); */
-    height: 100vh;
+    height: calc(100vh - 70px);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
