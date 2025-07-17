@@ -36,7 +36,7 @@
 .formGroup input,
 .formGroup textarea {
     background-color: #2a2744;
-    border: 1px solid var(--pink);
+    border: 1px solid var(--yellow);
     border-radius: 5px;
     padding: 0.8rem;
     color: var(--text);
@@ -51,6 +51,12 @@
     box-shadow: 0 0 10px var(--light-blue);
 }
 
+.btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .submitButton {
     background: linear-gradient(90deg, var(--pink), var(--light-blue));
     color: white;
@@ -60,6 +66,8 @@
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.3s;
+    width: 350px;
+    text-align: center;
 }
 
 .submitButton:hover:not(:disabled) {
@@ -72,7 +80,7 @@
     cursor: not-allowed;
 }
 
-/* Stile per i messaggi di errore */
+/* Stile per i messaggi di errore/invio */
 .errorMessage {
     color: var(--pink);
     margin-top: 0.5rem;

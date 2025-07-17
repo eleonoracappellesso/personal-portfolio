@@ -3,7 +3,7 @@ import styles from "./ChiSono.module.css";
 
 export default function ChiSono() {
     return (
-        <section>
+        <section id="chi-sono">
             <h2>Chi Sono</h2>
             <p>
                 La mia storia parte da un percorso in Scienze Politiche e Relazioni Internazionali, che mi ha insegnato a osservare il mondo con spirito critico e a risolvere problemi con metodo. Poi, un giorno, ho scoperto il coding... ed è stato un colpo di fulmine!

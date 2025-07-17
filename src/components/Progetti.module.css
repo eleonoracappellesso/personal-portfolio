@@ -25,10 +25,39 @@
     flex-direction: row-reverse;
 }
 
+.projectLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.projectLink:hover {
+    background-color: rgba(42, 39, 68, 0.5);
+}
+
+.text p {
+    font-size: 1rem;
+    color: #8c8c8c;
+    line-height: 1.6;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--yellow);
+    transition: transform 0.3s;
+}
+
+.projectLink:hover .cta {
+    transform: translateX(5px);
+}
+
 .image {
     width: 40%;
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 .text {

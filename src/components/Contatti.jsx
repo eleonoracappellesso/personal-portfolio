@@ -57,7 +57,7 @@ export default function Contatti() {
     }
 
     return (
-        <section className={styles.container}>
+        <section id="contatti" className={styles.container}>
             <h2>Contattami</h2>
             <p className={styles.intro}>Hai un'idea o un progetto in mente? Scrivimi!</p>
 
@@ -130,9 +130,11 @@ export default function Contatti() {
                     {errors.messaggio && <span className={styles.errorMessage}>{errors.messaggio}</span>}
                 </div>
 
-                <button type="submit" disabled={state.submitting} className={styles.submitButton}>
-                    {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
-                </button>
+                <div className={styles.btnGroup}>
+                    <button type="submit" disabled={state.submitting} className={styles.submitButton}>
+                        {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
+                    </button>
+                </div>
             </form>
         </section>
     );
