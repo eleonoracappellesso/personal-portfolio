@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Link as ScrollLink } from "react-scroll";
+import { useLocation, Link } from 'react-router-dom';
+import { Link as ScrollLink, scroller, animateScroll } from "react-scroll";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
@@ -9,9 +9,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from "./Header.module.css";
 
 export default function Header() {
-    const location = useLocation(); // Ottengo la posizione corrente dell'URL
-    const isHomepage = location.pathname === '/'; // Controllo se siamo sulla homepage
-    const [menuOpen, setMenuOpen] = useState(false); // Stato per il menu mobile
+    const location = useLocation();
+    const isHomepage = location.pathname === '/';
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         if (menuOpen) {
@@ -24,7 +24,14 @@ export default function Header() {
         };
     }, [menuOpen]);
 
-    // Creo un array per i link per rendere il codice più pulito
+    // Funzione dedicata per lo scroll-to-top
+    const scrollToTop = () => {
+        animateScroll.scrollToTop({
+            duration: 800,
+            smooth: 'easeInOutQuint'
+        });
+    };
+
     const navLinks = [
         { to: "chi-sono", label: "About" },
         { to: "progetti", label: "Progetti" },
@@ -40,35 +47,64 @@ export default function Header() {
         </>
     );
 
-    // Funzione per chiudere il menu quando un link viene cliccato
     const handleLinkClick = () => {
         setMenuOpen(false);
     };
 
+    const renderNavLinks = (isMobile = false) => {
+        return navLinks.map(link => (
+            isHomepage ? (
+                <ScrollLink 
+                    key={link.to} 
+                    activeClass={styles.active} 
+                    to={link.to} 
+                    spy={true} 
+                    smooth={true} 
+                    offset={-80} 
+                    duration={500}
+                    onClick={isMobile ? handleLinkClick : undefined}
+                >
+                    {link.label}
+                </ScrollLink>
+            ) : (
+                <Link 
+                    key={link.to} 
+                    to="/" 
+                    state={{ scrollTo: link.to }}
+                    onClick={isMobile ? handleLinkClick : undefined}
+                    className={isMobile ? styles.mobileNavLinkRouter : styles.desktopNavLinkRouter}
+                >
+                    {link.label}
+                </Link>
+            )
+        ));
+    };
+
+
     return (
         <header className={styles.header}>
-            {/* Navigazione Desktop con i link ripristinati */}
             <nav className={styles.desktopNavLinks}>
-                {navLinks.map(link => (
-                    isHomepage ? (
-                        <ScrollLink key={link.to} activeClass={styles.active} to={link.to} spy={true} smooth={true} offset={-80} duration={500}>
-                            {link.label}
-                        </ScrollLink>
-                    ) : (
-                        <a key={link.to} href={`/#${link.to}`}>{link.label}</a>
-                    )
-                ))}
+                {renderNavLinks()}
             </nav>
             
             <div className={styles.mobileLogo}>
-                 <a href="/" aria-label="Torna alla Homepage">EC</a>
+                 {isHomepage ? (
+                    // Se sei sulla homepage, usa react-scroll per tornare su
+                    <a onClick={scrollToTop} className={styles.logoLink}>
+                        EC
+                    </a>
+                 ) : (
+                    // Se sei su un'altra pagina, usa react-router per tornare alla homepage
+                    <Link to="/" className={styles.logoLink}>
+                        EC
+                    </Link>
+                 )}
             </div>
 
             <div className={styles.socialLinks}>
                 <SocialLinks />
             </div>
 
-            {/* Bottone Hamburger (solo per mobile) */}
             <button className={styles.hamburgerButton} onClick={() => setMenuOpen(true)} aria-label="Apri menu">
                 <FaBars />
             </button>
@@ -86,15 +122,7 @@ export default function Header() {
                             <FaTimes />
                         </button>
                         <nav className={styles.mobileNavLinks}>
-                            {navLinks.map(link => (
-                                isHomepage ? (
-                                    <ScrollLink key={link.to} to={link.to} spy={true} smooth={true} offset={-80} duration={500} onClick={handleLinkClick}>
-                                        {link.label}
-                                    </ScrollLink>
-                                ) : (
-                                    <a key={link.to} href={`/#${link.to}`} onClick={handleLinkClick}>{link.label}</a>
-                                )
-                            ))}
+                            {renderNavLinks(true)}
                         </nav>
                         <div className={styles.mobileSocialLinks}>
                             <SocialLinks />

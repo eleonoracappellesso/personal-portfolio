@@ -19,6 +19,13 @@
 }
 
 /* === Stili Mobile (Default) === */
+.logoLink {
+    cursor: pointer;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
 .desktopNavLinks,
 .socialLinks {

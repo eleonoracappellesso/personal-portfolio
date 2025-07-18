@@ -37,7 +37,7 @@ export default function DettagliProgetto() {
 
             <Link to="/#progetti" className={styles.backButton}>
                 <IoArrowBack />
-                Tutti i progetti
+                Indietro            
             </Link>
 
             <div className={styles.header}>
