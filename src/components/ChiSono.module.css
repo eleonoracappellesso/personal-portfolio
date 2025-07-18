@@ -1,0 +1,52 @@
+/* --- Contenitore Principale --- */
+.container {
+    max-width: 1200px;
+    /* Larghezza massima della sezione sulla pagina */
+    margin: 80px auto;
+    padding: 1rem;
+    text-align: left;
+    /* Allinea tutto a sinistra, incluso l'h2 */
+}
+
+.container h2 {
+    margin-bottom: 2rem;
+    /* Spazio tra il titolo e il testo */
+}
+
+/* --- Contenitore del Testo --- */
+.textContainer {
+    margin-bottom: 4rem;
+    /* Spazio prima della sezione tecnologie */
+}
+
+/* --- Stile dei Paragrafi --- */
+.textContainer p {
+    color: #c5c8c6;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    /* Aumentiamo la spaziatura per il testo giustificato */
+    margin-bottom: 1.5rem;
+
+    /* Per evitare "fiumi" di spazio bianco nel testo giustificato,
+       permettiamo al browser di sillabare le parole. */
+    hyphens: auto;
+}
+
+/* Stile per le parole chiave evidenziate */
+.highlight {
+    font-weight: bold;
+    color: var(--yellow);
+    background-color: rgba(253, 209, 106, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* === Stile Testo Giustificato per Schermi più Grandi === */
+/* Su mobile lasciamo il testo allineato a sx per massima leggibilità.
+   Il giustificato si attiva solo su schermi più larghi */
+@media (min-width: 768px) {
+    .textContainer p {
+        text-align: justify;
+    }
+}
