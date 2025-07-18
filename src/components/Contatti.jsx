@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'; // Per gestire il routing
 import { useForm, ValidationError } from '@formspree/react'; // Hook per gestire invio form via Formspree
 import styles from './Contatti.module.css'; // CSS module per styling 
 
@@ -13,6 +14,9 @@ export default function Contatti() {
         email: '',
         messaggio: '',
     });
+
+    // Stato per la checkbox del consenso
+    const [isChecked, setIsChecked] = useState(false);
 
     // Stato locale per memorizzare eventuali errori di validazione
     const [errors, setErrors] = useState({});
@@ -131,9 +135,29 @@ export default function Contatti() {
                     {errors.messaggio && <span className={styles.errorMessage}>{errors.messaggio}</span>}
                 </div>
 
+                {/* Checkbox per il consenso */}
+                <div className={styles.consentGroup}>
+                     <input
+                        type="checkbox"
+                        id="privacy-consent"
+                        name="privacy-consent"
+                        checked={isChecked}
+                        onChange={(e) => setIsChecked(e.target.checked)}
+                        className={styles.consentCheckbox}
+                     />
+                    <label htmlFor="privacy-consent" className={styles.consentLabel}>
+                          Ho letto e accetto la <Link to="/privacy-policy" target="_blank">Privacy Policy</Link>.
+                    </label>
+                </div>
+
+                {/* Bottone di invio del form */}
                 <div className={styles.btnGroup}>
-                    <button type="submit" disabled={state.submitting} className={styles.submitButton}>
-                        {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
+                    <button 
+                        type="submit" 
+                        disabled={state.submitting || !isChecked} // Disabilitato se non è spuntato
+                        className={styles.submitButton}
+                    >
+                      {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
                     </button>
                 </div>
             </form>

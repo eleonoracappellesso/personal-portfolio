@@ -98,6 +98,44 @@
     margin: 80px auto;
 }
 
+/* Stili per il gruppo della checkbox di consenso */
+.consentGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: -0.5rem;
+}
+
+.consentCheckbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--light-blue);
+    cursor: pointer;
+}
+
+.consentLabel {
+    font-size: 0.9rem;
+    color: #c5c8c6;
+}
+
+.consentLabel a {
+    color: var(--light-blue);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Stili per il bottone quando è disabilitato */
+.submitButton:disabled {
+    background: #555;
+    cursor: not-allowed;
+    transform: none;
+    /* Rimuoviamo l'effetto di sollevamento */
+    box-shadow: none;
+    /* Rimuoviamo l'ombra */
+    opacity: 0.6;
+    /* Lo rendiamo un po' trasparente */
+}
+
 /* Media query per schermi più grandi */
 @media (min-width: 768px) {
     .formRow {
