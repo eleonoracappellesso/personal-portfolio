@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
-import styles from "./Tecnologie.module.css";
+import { motion } from "framer-motion"; // per le animazioni
+import styles from "./Tecnologie.module.css"; // CSS module per lo styling
 
+// Array tecnologie usate con nome e immagine associata
 const technologies = [
     { name: "HTML", img: "/technologies/html.png" },
     { name: "CSS", img: "/technologies/css.png" },
@@ -16,7 +17,7 @@ const technologies = [
     { name: "Figma", img: "/technologies/figma.png" },
 ];
 
-// Definisco le varianti per l'animazione
+// Definisco le varianti di animazione per il contenitore
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,6 +28,7 @@ const containerVariants = {
     },
 };
 
+// Varianti di animazione per ogni card
 const cardVariants = {
     hidden: { y: 20, opacity: 0 }, // Stato iniziale: 20px più in basso e invisibile
     visible: { y: 0, opacity: 1 }, // Stato finale: posizione originale e visibile
@@ -35,13 +37,15 @@ const cardVariants = {
 export default function Tecnologie() {
     return (
         <section id="tecnologie" className={styles.container}>
+            {/* Titolo delle sezioni */}
             <h4>Le <span>tecnologie</span> che uso attualmente sono:</h4>
 
+            {/* Griglia animata contenente tutte le card */}
             <motion.div
                 className={styles.grid}
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible" // L'animazione parte quando la sezione è visibile
+                variants={containerVariants} // applica animazione collettiva
+                initial="hidden" // stato iniziale invisibile
+                whileInView="visible" // L'animazione parte quando la sezione è visibile nel viewport
                 viewport={{ once: true, amount: 0.2 }} // L'animazione si esegue una sola volta
             >
                 {technologies.map((tech, index) => (
@@ -53,7 +57,9 @@ export default function Tecnologie() {
                         transition={{ type: "spring", stiffness: 300, damping: 15 }} // Transizione elastica
                     >
                         <div className={styles.card}>
+                            {/* icona della tecnologia */}
                             <img src={tech.img} alt={tech.name} className={styles.icon} />
+                            {/* nome della tecnologia */}
                             <p className={styles.techName}>{tech.name}</p>
                         </div>
                     </motion.div>
