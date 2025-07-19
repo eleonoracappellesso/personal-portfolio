@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             transition={{ duration: 0.5 }}
         >
             <h1>Privacy Policy</h1>
-            <p className={styles.lastUpdated}>Ultimo aggiornamento: 24 Maggio 2024</p>
+            <p className={styles.lastUpdated}>Ultimo aggiornamento: 19 Luglio 2025</p>
 
             <section>
                 <h2>1. Titolare del Trattamento</h2>
