@@ -38,7 +38,7 @@ export default function DettagliProgetto() {
             {/* Pulsante per tornare indietro */}
             <Link to="/" state={{scrollTo:'progetti'}} className={styles.backButton}>
                 <IoArrowBack />
-                Tutti i ptogetti            
+                Tutti i progetti            
             </Link>
 
             {/* Header con titolo e tipo del progetto */}
